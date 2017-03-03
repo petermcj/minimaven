@@ -23,7 +23,6 @@ pipeline {
     stage("init") {
       steps {
         echo "My branch is: ${env.BRANCH_NAME}"
-        
       }
     }
     
@@ -34,19 +33,14 @@ pipeline {
     }
     
     stage("dev") {
-      when {
-        expression {
-          echo "test for dev branch"
-          return true
-        }
-      }
-      
+      when {branch "dev"}
       steps {
         echo "branch=dev"
       }
-      
     }
+
     stage("master") {
+      when {branch "master"}
       steps {
         echo "branch=Master"
       }
