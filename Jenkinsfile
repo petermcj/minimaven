@@ -23,6 +23,7 @@ pipeline {
     stage("init") {
       steps {
         echo "My branch is: ${env.BRANCH_NAME}"
+        echo sh(returnStdout: true, script: 'env')
       }
     }
     
@@ -31,7 +32,8 @@ pipeline {
         sh 'mvn clean'
       } 
     }
-    
+    stage ("dev-PR"){
+      when {branch "PRdev"}
     stage("dev") {
       when {branch "dev"}
       steps {
