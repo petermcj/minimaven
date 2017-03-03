@@ -33,7 +33,11 @@ pipeline {
       } 
     }
     stage ("dev-PR"){
-      when {branch "PRdev"}
+      when {branch "PR-dev"}
+       steps {
+        echo "branch=PR-dev"
+      }
+    }
     stage("dev") {
       when {branch "dev"}
       steps {
