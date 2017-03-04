@@ -27,19 +27,12 @@ pipeline {
         echo sh(returnStdout: true, script: 'env')
       }
     }
-    
-    stage ("cleanup") {
+    stage ("build") {
        steps {
-        sh 'mvn clean'
+        sh 'mvn clean test'
       } 
     }
-    stage ("PR"){
-      when {env.BRANCH_NAME.startsWith('PR-')}
-       steps {
-        echo "PULL REQUEST"
-        sh 'mvn clean test'
-      }
-    }
+    
     stage("dev") {
       when {branch "dev"}
       steps {
@@ -52,6 +45,18 @@ pipeline {
       steps {
         echo "branch=Master"
       }
+    }
+  }
+  post {
+    always {
+      echo "Hi there"
+    }
+    changed {
+      echo "I'm different"
+    }
+    success {
+      echo "I succeeded"
+      archive "**/*"
     }
   }
  }
