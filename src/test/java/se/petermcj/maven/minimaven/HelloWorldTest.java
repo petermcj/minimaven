@@ -12,4 +12,10 @@ public class HelloWorldTest {
     
   }
   
+  @Test
+  public void helloWorldTest() {
+    HelloWorld hw = new HelloWorld();
+    assertNotNull(hw);
+
+  }
 }
