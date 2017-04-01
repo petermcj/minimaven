@@ -23,12 +23,13 @@ pipeline {
     stage("init") {
       steps {
         echo "My branch is: ${env.BRANCH_NAME}"
+        
+        echo sh(returnStdout: true, script: 'env')
       }
     }
-    
-    stage ("cleanup") {
+    stage ("build") {
        steps {
-        sh 'mvn clean'
+        sh 'mvn clean test'
       } 
     }
     
@@ -44,6 +45,18 @@ pipeline {
       steps {
         echo "branch=Master"
       }
+    }
+  }
+  post {
+    always {
+      echo "Hi there"
+    }
+    changed {
+      echo "I'm different"
+    }
+    success {
+      echo "I succeeded"
+      archive "**/*"
     }
   }
  }
