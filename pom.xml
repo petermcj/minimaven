@@ -7,8 +7,11 @@
   <packaging>jar</packaging>
 
   <scm>
-    <connection>scm:git:https://github.com/petermcj/minimaven.git</connection>
-  </scm>
+    <url>https://github.com/petermcj/minimaven</url>
+    <connection>scm:git:git://github.com/petermcj/minimaven.git</connection>
+    <developerConnection>scm:git:git@github.com:petermcj/minimaven.git</developerConnection>
+   
+</scm>
 
 
 
