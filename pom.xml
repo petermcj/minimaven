@@ -108,7 +108,6 @@
           </flowInitContext>
           <!--username>USERNAME_FOR_A_GIT_USER</username>
           <password>PASSWORD_FOR_A_GIT_USER</password-->
-          <noDeploy>true</noDeploy>
           <squash>true</squash>
           <scmCommentPrefix>[RELEASE] </scmCommentPrefix>
         </configuration>
