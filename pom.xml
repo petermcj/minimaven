@@ -91,6 +91,8 @@
           </systemPropertyVariables>
         </configuration>
       </plugin>
+      
+      
       <!-- Gitflow Handling: https://gist.github.com/lemiorhan/97b4f827c08aed58a9d8-->
       <plugin>
         <groupId>external.atlassian.jgitflow</groupId>
@@ -120,9 +122,9 @@
         <artifactId>gitflow-helper-maven-plugin</artifactId>
         <version>1.7.1</version>
         <configuration>
-          <releaseDeploymentRepository>nexus-server-id::default::http://localhost:8081/repository/releases/::false</releaseDeploymentRepository>
-          <stageDeploymentRepository>nexus-server-id::default::http://localhost:8081/repository/stage/::false</stageDeploymentRepository>
-          <snapshotDeploymentRepository>nexus-server-id::default::http://localhost:8081/repository/snapshots/::true</snapshotDeploymentRepository>
+          <releaseDeploymentRepository>localnexus-releases::default::http://localhost:8081/repository/releases/::false</releaseDeploymentRepository>
+          <stageDeploymentRepository>localnexus-stage::default::http://localhost:8081/repository/stage/::false</stageDeploymentRepository>
+          <snapshotDeploymentRepository>localnexus-snapshots::default::http://localhost:8081/repository/snapshots/::true</snapshotDeploymentRepository>
         </configuration>
         <extensions>true</extensions>
         <executions>
@@ -136,10 +138,8 @@
           </execution>
         </executions>
       </plugin>
-      
-      
-      
-    
     </plugins>
   </build>
+  
+
 </project>
