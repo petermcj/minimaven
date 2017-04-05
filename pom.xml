@@ -5,13 +5,13 @@
   <artifactId>minimaven</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
-  
+
   <scm>
     <connection>scm:git:https://github.com/petermcj/minimaven.git</connection>
   </scm>
 
 
- 
+
   <properties>
     <java.version>1.7</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,11 +21,11 @@
 
     <version.jacoco>0.7.9</version.jacoco> 
     <version.junit>4.12</version.junit> 
-        
+
     <netbeans.hint.jdkPlatform>JDK_${java.version}</netbeans.hint.jdkPlatform>
   </properties>
-    
-    
+
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -34,7 +34,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
+
   <build>
     <plugins>
       <!-- Code coverage -->
@@ -91,16 +91,16 @@
           </systemPropertyVariables>
         </configuration>
       </plugin>
-      
+
       <!--Release handling; http://www.sonatype.org/nexus/2016/04/25/gitflow-maven-and-ci-done-right-part-1-teaching-maven-new-tricks/-->
       <plugin>
         <groupId>com.e-gineering</groupId>
         <artifactId>gitflow-helper-maven-plugin</artifactId>
         <version>1.7.1</version>
         <configuration>
-          <releaseDeploymentRepository>nexus-server-id::default::http://localhost:8081/repository/releases/::false</releaseDeploymentRepository>
-          <stageDeploymentRepository>nexus-server-id::default::http://localhost:8081/repository/stage/::false</stageDeploymentRepository>
-          <snapshotDeploymentRepository>nexus-server-id::default::http://localhost:8081/repository/snapshots/::true</snapshotDeploymentRepository>
+          <releaseDeploymentRepository>localnexus-releases::default::http://localhost:8081/repository/releases/::false</releaseDeploymentRepository>
+          <stageDeploymentRepository>localnexus-stage::default::http://localhost:8081/repository/stage/::false</stageDeploymentRepository>
+          <snapshotDeploymentRepository>localnexus-snapshots::default::http://localhost:8081/repository/snapshots/::true</snapshotDeploymentRepository>
         </configuration>
         <extensions>true</extensions>
         <executions>
@@ -114,7 +114,7 @@
           </execution>
         </executions>
       </plugin>
-    
+
     </plugins>
   </build>
 </project>
