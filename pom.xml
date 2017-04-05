@@ -3,12 +3,15 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.petermcj.maven</groupId>
   <artifactId>minimaven</artifactId>
-  <version>1.0</version>
+  <version>1.1.0</version>
   <packaging>jar</packaging>
 
   <scm>
-    <connection>scm:git:https://github.com/petermcj/minimaven.git</connection>
-  </scm>
+    <url>https://github.com/petermcj/minimaven</url>
+    <connection>scm:git:git://github.com/petermcj/minimaven.git</connection>
+    <developerConnection>scm:git:git@github.com:petermcj/minimaven.git</developerConnection>
+   
+</scm>
 
 
 
@@ -108,7 +111,6 @@
           </flowInitContext>
           <!--username>USERNAME_FOR_A_GIT_USER</username>
           <password>PASSWORD_FOR_A_GIT_USER</password-->
-          <noDeploy>true</noDeploy>
           <squash>true</squash>
           <scmCommentPrefix>[RELEASE] </scmCommentPrefix>
         </configuration>
