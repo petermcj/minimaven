@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.petermcj.maven</groupId>
   <artifactId>minimaven</artifactId>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   
   <scm>
@@ -92,15 +92,39 @@
         </configuration>
       </plugin>
       
+      
+      <!-- Gitflow Handling: https://gist.github.com/lemiorhan/97b4f827c08aed58a9d8-->
+      <plugin>
+        <groupId>external.atlassian.jgitflow</groupId>
+        <artifactId>jgitflow-maven-plugin</artifactId>
+        <version>1.0-m5.1</version>
+        <configuration>
+          <flowInitContext>
+            <masterBranchName>master</masterBranchName>
+            <developBranchName>development</developBranchName>
+            <featureBranchPrefix>feature-</featureBranchPrefix>
+            <releaseBranchPrefix>release-</releaseBranchPrefix>
+            <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+            <versionTagPrefix>version-</versionTagPrefix>
+          </flowInitContext>
+          <!--username>USERNAME_FOR_A_GIT_USER</username>
+          <password>PASSWORD_FOR_A_GIT_USER</password-->
+          <noDeploy>true</noDeploy>
+          <squash>true</squash>
+          <scmCommentPrefix>[RELEASE] </scmCommentPrefix>
+        </configuration>
+      </plugin>
+        
+        
       <!--Release handling; http://www.sonatype.org/nexus/2016/04/25/gitflow-maven-and-ci-done-right-part-1-teaching-maven-new-tricks/-->
       <plugin>
         <groupId>com.e-gineering</groupId>
         <artifactId>gitflow-helper-maven-plugin</artifactId>
         <version>1.7.1</version>
         <configuration>
-          <releaseDeploymentRepository>nexus-server-id::default::http://localhost:8081/repository/releases/::false</releaseDeploymentRepository>
-          <stageDeploymentRepository>nexus-server-id::default::http://localhost:8081/repository/stage/::false</stageDeploymentRepository>
-          <snapshotDeploymentRepository>nexus-server-id::default::http://localhost:8081/repository/snapshots/::true</snapshotDeploymentRepository>
+          <releaseDeploymentRepository>localnexus-releases::default::http://localhost:8081/repository/releases/::false</releaseDeploymentRepository>
+          <stageDeploymentRepository>localnexus-stage::default::http://localhost:8081/repository/stage/::false</stageDeploymentRepository>
+          <snapshotDeploymentRepository>localnexus-snapshots::default::http://localhost:8081/repository/snapshots/::true</snapshotDeploymentRepository>
         </configuration>
         <extensions>true</extensions>
         <executions>
@@ -114,7 +138,8 @@
           </execution>
         </executions>
       </plugin>
-    
     </plugins>
   </build>
+  
+
 </project>
