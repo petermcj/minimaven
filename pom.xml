@@ -91,7 +91,29 @@
           </systemPropertyVariables>
         </configuration>
       </plugin>
-      
+      <!-- Gitflow Handling: https://gist.github.com/lemiorhan/97b4f827c08aed58a9d8-->
+      <plugin>
+        <groupId>external.atlassian.jgitflow</groupId>
+        <artifactId>jgitflow-maven-plugin</artifactId>
+        <version>1.0-m5.1</version>
+        <configuration>
+          <flowInitContext>
+            <masterBranchName>master</masterBranchName>
+            <developBranchName>development</developBranchName>
+            <featureBranchPrefix>feature-</featureBranchPrefix>
+            <releaseBranchPrefix>release-</releaseBranchPrefix>
+            <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+            <versionTagPrefix>version-</versionTagPrefix>
+          </flowInitContext>
+          <!--username>USERNAME_FOR_A_GIT_USER</username>
+          <password>PASSWORD_FOR_A_GIT_USER</password-->
+          <noDeploy>true</noDeploy>
+          <squash>true</squash>
+          <scmCommentPrefix>[RELEASE] </scmCommentPrefix>
+        </configuration>
+      </plugin>
+        
+        
       <!--Release handling; http://www.sonatype.org/nexus/2016/04/25/gitflow-maven-and-ci-done-right-part-1-teaching-maven-new-tricks/-->
       <plugin>
         <groupId>com.e-gineering</groupId>
@@ -114,6 +136,9 @@
           </execution>
         </executions>
       </plugin>
+      
+      
+      
     
     </plugins>
   </build>
