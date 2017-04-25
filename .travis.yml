@@ -7,7 +7,7 @@ cache:
   
 addons:
   sonarqube:
-    organization: "petermcj"
+    organization: "petermcj-github"
     branches:
       - master
 
