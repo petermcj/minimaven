@@ -3,13 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.petermcj.maven</groupId>
   <artifactId>minimaven</artifactId>
-  <version>1.1.0</version>
+
+  <version>1.1.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <scm>
-    <connection>scm:git:https://github.com/petermcj/minimaven.git</connection>
-  </scm>
+    <url>https://github.com/petermcj/minimaven</url>
+    <connection>scm:git:git://github.com/petermcj/minimaven.git</connection>
+    <developerConnection>scm:git:git@github.com:petermcj/minimaven.git</developerConnection>
    
+</scm>
+
   <properties>
     <java.version>1.7</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
