@@ -1,6 +1,3 @@
-sudo: false
-language: java
-
 cache:
   directories:
   - "$HOME/.m2"
@@ -15,8 +12,9 @@ addons:
 
 jdk:
  - openjdk7
+
 script:
-  - mvn clean verify
+  - mvn clean package
 
 after_success:
   - jdk_switcher use oraclejdk8
