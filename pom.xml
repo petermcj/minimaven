@@ -8,7 +8,6 @@
 
   <scm>
     <connection>scm:git:https://github.com/petermcj/minimaven.git</connection>
-    <tag>HEAD</tag>
   </scm>
    
   <properties>
