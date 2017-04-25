@@ -1,0 +1,19 @@
+sudo: false
+language: java
+cache:
+  directories:
+  - "$HOME/.m2"
+  - "$HOME/.sonar/cache"
+  
+addons:
+  sonarqube:
+    organization: "petermcj-github"
+    branches:
+      - master
+
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package
+
+after_success:
+  - jdk_switcher use oraclejdk8
+  - mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN
