@@ -10,8 +10,8 @@
     <url>https://github.com/petermcj/minimaven</url>
     <connection>scm:git:git://github.com/petermcj/minimaven.git</connection>
     <developerConnection>scm:git:git@github.com:petermcj/minimaven.git</developerConnection>
-   
-</scm>
+    <tag>HEAD</tag>
+  </scm>
 
 
 
