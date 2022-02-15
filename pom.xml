@@ -22,7 +22,7 @@
     <maven.version.min>3.2.0</maven.version.min>
 
     <version.jacoco>0.7.9</version.jacoco> 
-    <version.junit>4.12</version.junit> 
+    <version.junit>4.13.1</version.junit> 
 
     <netbeans.hint.jdkPlatform>JDK_${java.version}</netbeans.hint.jdkPlatform>
   </properties>
