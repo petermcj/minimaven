@@ -23,12 +23,19 @@
 
     <version.jacoco>0.7.9</version.jacoco> 
     <version.junit>4.12</version.junit> 
-
+    <original.geoserver.version>2.19.6</original.geoserver.version>
     <netbeans.hint.jdkPlatform>JDK_${java.version}</netbeans.hint.jdkPlatform>
   </properties>
 
 
   <dependencies>
+    <dependency>
+			<groupId>org.geoserver.web</groupId>
+			<artifactId>gs-web-app</artifactId>
+			<version>${original.geoserver.version}</version>
+			<type>war</type>
+			<scope>runtime</scope>
+		</dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
