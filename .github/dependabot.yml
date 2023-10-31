@@ -4,12 +4,12 @@
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
 version: 2
+registries:
+  maven-artifactory:
+    type: maven-repository
+    url: https://repo.osgeo.org/repository/release
 updates:
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
-
-maven:
-  additional-remote-repositories:
-    - url: "https://repo.osgeo.org/repository/release"
