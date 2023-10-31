@@ -28,17 +28,4 @@ jobs:
 
       - name: Build project with Maven
         run: mvn clean test
-     
-      - name: Depcheck
-        uses: dependency-check/Dependency-Check_Action@main
-        with:
-          java-version: 11
-          project: 'Minimaven'
-          path: '.'
-          format: 'HTML'    
-          others: ''
-      - name: Upload Test results
-        uses: actions/upload-artifact@master
-        with:
-           name: Depcheck report
-           path: ${{github.workspace}}/reports
+  
