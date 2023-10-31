@@ -5,11 +5,13 @@
 
 version: 2
 registries:
-  maven-artifactory:
+  maven-osgeo:
     type: maven-repository
     url: https://repo.osgeo.org/repository/release
 updates:
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/" # Location of package manifests
+    registries:
+      - maven-osgeo
     schedule:
       interval: "weekly"
