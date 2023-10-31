@@ -15,14 +15,14 @@
 </scm>
 
   <properties>
-    <java.version>1.7</java.version>
+    <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.version.min>3.2.0</maven.version.min>
 
-    <version.jacoco>0.7.9</version.jacoco> 
-    <version.junit>4.12</version.junit> 
+    <version.jacoco>0.8.11</version.jacoco> 
+    <version.junit>4.13.1</version.junit> 
     <original.geoserver.version>2.19.6</original.geoserver.version>
     <netbeans.hint.jdkPlatform>JDK_${java.version}</netbeans.hint.jdkPlatform>
   </properties>
@@ -30,12 +30,12 @@
 
   <dependencies>
     <dependency>
-			<groupId>org.geoserver.web</groupId>
-			<artifactId>gs-web-app</artifactId>
-			<version>${original.geoserver.version}</version>
-			<type>war</type>
-			<scope>runtime</scope>
-		</dependency>
+      <groupId>org.geoserver.web</groupId>
+      <artifactId>gs-web-app</artifactId>
+      <version>${original.geoserver.version}</version>
+      <type>war</type>
+      <scope>runtime</scope>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -93,7 +93,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.12.2</version>
+        <version>3.2.1</version>
         <configuration>
           <systemPropertyVariables>
             <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
@@ -102,32 +102,12 @@
       </plugin>
       
       
-      <!-- Gitflow Handling: https://gist.github.com/lemiorhan/97b4f827c08aed58a9d8-->
-      <plugin>
-        <groupId>external.atlassian.jgitflow</groupId>
-        <artifactId>jgitflow-maven-plugin</artifactId>
-        <version>1.0-m5.1</version>
-        <configuration>
-          <flowInitContext>
-            <masterBranchName>master</masterBranchName>
-            <developBranchName>development</developBranchName>
-            <featureBranchPrefix>feature-</featureBranchPrefix>
-            <releaseBranchPrefix>release-</releaseBranchPrefix>
-            <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
-            <versionTagPrefix>version-</versionTagPrefix>
-          </flowInitContext>
-          <!--username>USERNAME_FOR_A_GIT_USER</username>
-          <password>PASSWORD_FOR_A_GIT_USER</password-->
-          <squash>true</squash>
-          <scmCommentPrefix>[RELEASE] </scmCommentPrefix>
-        </configuration>
-      </plugin>
-
+      
       <!--Release handling; http://www.sonatype.org/nexus/2016/04/25/gitflow-maven-and-ci-done-right-part-1-teaching-maven-new-tricks/-->
       <plugin>
         <groupId>com.e-gineering</groupId>
         <artifactId>gitflow-helper-maven-plugin</artifactId>
-        <version>1.7.1</version>
+        <version>3.0.0</version>
         <configuration>
           <releaseDeploymentRepository>localnexus-releases::default::http://localhost:8081/repository/releases/::false</releaseDeploymentRepository>
           <stageDeploymentRepository>localnexus-stage::default::http://localhost:8081/repository/stage/::false</stageDeploymentRepository>
