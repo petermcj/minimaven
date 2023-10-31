@@ -12,11 +12,4 @@ updates:
 
 maven:
   additional-remote-repositories:
-    - url: "https://repo.osgeo.org/repository/release"    
-  
-  #<repositories>
-  #        <repository>
-  #           <id>osgeo</id>
-  #          <url>https://repo.osgeo.org/repository/release/</url>
-  #     </repository>     
-  #</repositories>
+    - url: "https://repo.osgeo.org/repository/release"
